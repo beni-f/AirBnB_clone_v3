@@ -3,6 +3,7 @@
     index.py
 """
 from api.v1.views import app_views
+from models import storage
 from flask import jsonify
 from models.amenity import Amenity
 from models.city import City
@@ -30,3 +31,4 @@ def stats():
         'users': storage.count(User)
     }
     return jsonify(objects_count)
+

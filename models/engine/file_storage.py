@@ -79,7 +79,7 @@ class FileStorage:
         else:
             if cls not in classes.values():
                 return None
-            all_cls = models.storage.all()
+            all_cls = models.storage.all(cls)
             for values in all_cls.values():
                 if id == values.id:
                     return values

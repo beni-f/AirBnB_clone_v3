@@ -79,12 +79,12 @@ class DBStorage:
         """
             A method to retrieve one object
         """
-        if cls in None:
+        if not cls:
             return None
         else:
             if cls not in classes.values():
                 return None
-            all_cls = models.storage.all()
+            all_cls = models.storage.all(cls)
             for values in all_cls.values():
                 if (id == values.id):
                     return values
@@ -97,7 +97,7 @@ class DBStorage:
         all_cls = classes.values()
         if cls is None:
             for clss in all_cls:
-                count += len(models.storage.all().values())
+                count += len(models.storage.all(clss).values())
         else:
-            count = len(models.storage.all().values())
+            count = len(models.storage.all(cls).values())
         return count
