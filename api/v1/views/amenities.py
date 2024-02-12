@@ -67,7 +67,7 @@ def update_amenity(amenity_id):
     if not amenity:
         abort(404)
     ignore_keys = ['id', 'created_at', 'updated_at']
-    for key, value in amenity.items():
+    for key, value in data.items():
         if key not in ignore_keys:
             setattr(amenity, key, value)
     storage.save()
