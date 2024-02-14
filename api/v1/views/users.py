@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    Creates a new view for the User objects
+"""
 from models import storage
 from models.user import User
 from flask import jsonify, make_response, abort, request
