@@ -68,6 +68,7 @@ def create_review(place_id):
     if not user:
         abort(404)
     
+    data['place_id'] = place_id
     review = Review(**data)
     storage.new(review)
     storage.save()
