@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""
+    Creates a new view for Review objects
+"""
 from models import storage 
 from models.review import Review
 from models.place import Place
