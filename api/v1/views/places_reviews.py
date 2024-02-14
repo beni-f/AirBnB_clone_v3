@@ -32,6 +32,9 @@ def get_review(review_id):
 
 @app_views.route('/reviews/<review_id>', methods=['DELETE'], strict_slashes=False)
 def delete_review(review_id):
+    """
+        Deletes a Review object
+    """
     review = storage.get(Review, review_id)
 
     if not review:
@@ -41,8 +44,11 @@ def delete_review(review_id):
     storage.save()
     return make_response(jsonify({}), 200)
 
-@app_views.route('/place/<place_id>/reviews', methods=['POST'], strict_slashes=False)
+@app_views.route('/places/<place_id>/reviews', methods=['POST'], strict_slashes=False)
 def create_review(place_id):
+    """
+        Creates a Review
+    """
     place = storage.get(Place, place_id)
     data = request.get_json()
 
@@ -66,6 +72,9 @@ def create_review(place_id):
 
 @app_views.route('reviews/<review_id>', methods=['PUT'], strict_slashes=False)
 def update_review(review_id):
+    """
+        Updates a Review object
+    """
     review = storage.get(Review, review_id)
     data = request.get_json()
 
